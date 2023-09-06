@@ -29,7 +29,6 @@ module.exports = async(req, res) => {
         // Return the CSV data
         res.status(200).send(fullCsv);
     } catch (error) {
-        console.error("Error fetching data from PostgreSQL:", error);
-        res.status(500).send("Error fetching data from PostgreSQL.");
+        res.status(500).send(error);
     }
 };
