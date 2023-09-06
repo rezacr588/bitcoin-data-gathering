@@ -45,6 +45,6 @@ module.exports = async(req, res) => {
         res.status(200).send(`Price saved: ${price}`);
     } catch (error) {
         console.error("Error:", error);
-        res.status(500).send("Failed to fetch price or update Gist.");
+        res.status(500).send(error);
     }
 };
