@@ -1,12 +1,9 @@
 const axios = require("axios");
 const { Pool } = require("pg");
-
-// ElephantSQL connection URL
-const connectionString =
-    "postgres://fchszuxs:hKdwCjO_2u3ogekA_LvMShLA2uUnIIrt@berry.db.elephantsql.com/fchszuxs";
+const { config } = require("../config");
 
 const pool = new Pool({
-    connectionString: connectionString,
+    connectionString: config.connectionString,
 });
 
 module.exports = async(req, res) => {
