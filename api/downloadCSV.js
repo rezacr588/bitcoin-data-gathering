@@ -20,6 +20,6 @@ module.exports = async(req, res) => {
         res.status(200).send(csvData);
     } catch (error) {
         console.error("Error fetching CSV from Gist:", error);
-        res.status(500).send("Failed to fetch CSV.");
+        res.status(500).send("Error fetching CSV from Gist:", error);
     }
 };
