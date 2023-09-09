@@ -15,7 +15,11 @@ module.exports = async(req, res) => {
         // Convert the data to CSV format
         const csvHeaders = "TIME,PRICE\n";
         const csvData = result.rows
-            .map((row) => `${row.time},${row.price}`)
+            .map((row) => {
+                // Convert ISO 8601 time format to UNIX timestamp
+                const unixTime = Math.floor(new Date(row.time).getTime() / 1000);
+                return `${unixTime},${row.price}`;
+            })
             .join("\n");
         const fullCsv = csvHeaders + csvData;
 
