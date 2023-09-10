@@ -1,9 +1,7 @@
 const { Pool } = require("pg");
-const { config } = require("../config");
+const { vercelDatabaseConfig } = require("../config");
 
-const pool = new Pool({
-  connectionString: config.vercel_pg_connection_string,
-});
+const pool = new Pool(vercelDatabaseConfig);
 
 module.exports = async (req, res) => {
   try {
