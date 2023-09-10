@@ -7,11 +7,6 @@ const pool = new Pool({
 
 module.exports = async (req, res) => {
   try {
-    // Check if the request method is DELETE
-    if (req.method !== "DELETE") {
-      return res.status(405).send("Method not allowed"); // 405 Method Not Allowed
-    }
-
     // Clear data from btc_data table
     const query = `TRUNCATE TABLE btc_data;`;
     await pool.query(query);
