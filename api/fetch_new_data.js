@@ -1,9 +1,9 @@
 const axios = require("axios");
 const { Pool } = require("pg");
+const { config } = require("../config");
 
 const pool = new Pool({
-  connectionString:
-    "postgres://default:HsPubQ4t2vMp@ep-delicate-sun-86744836.us-east-1.postgres.vercel-storage.com:5432/verceldb",
+  connectionString: config.vercel_pg_connection_string,
   ssl: {
     rejectUnauthorized: false,
   },
