@@ -27,27 +27,7 @@ module.exports = async (req, res) => {
         `;
     await pool.query(insertQuery, [lastPrice, volume, topBid, topAsk, spread]);
 
-    // Fetch all rows from the database
-    const fetchQuery = "SELECT * FROM btc_data";
-    const result = await pool.query(fetchQuery);
-
-    // Convert rows to HTML table
-    let html = "<table border='1'>";
-    html +=
-      "<tr><th>Timestamp</th><th>Last Price</th><th>Volume</th><th>Top Bid</th><th>Top Ask</th><th>Spread</th></tr>";
-    for (let row of result.rows) {
-      html += `<tr>
-                <td>${row.timestamp}</td>
-                <td>${row.last_price}</td>
-                <td>${row.volume}</td>
-                <td>${row.top_bid}</td>
-                <td>${row.top_ask}</td>
-                <td>${row.spread}</td>
-               </tr>`;
-    }
-    html += "</table>";
-
-    res.status(200).send(html);
+    res.status(200).send("Data stored successfully");
   } catch (error) {
     res.status(500).send(`Error: ${error.message}`);
   }
