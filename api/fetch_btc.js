@@ -10,26 +10,16 @@ module.exports = async (req, res) => {
   try {
     // Fetching the order book
     const orderBookResponse = await axios.get(
-      "https://api.polygon.io/v2/crypto/snapshot/level2/BTC-USD",
-      {
-        params: {
-          apiKey: config.polygonApiKey,
-        },
-      },
+      "https://api.binance.com/api/v3/depth?symbol=BTCUSDT&limit=5",
     );
 
     // Fetching the price and volume
     const priceVolumeResponse = await axios.get(
-      "https://api.polygon.io/v2/crypto/snapshot/level1/BTC-USD",
-      {
-        params: {
-          apiKey: config.polygonApiKey,
-        },
-      },
+      "https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT",
     );
 
     const { asks, bids } = orderBookResponse.data;
-    const { lastTrade, volume24h } = priceVolumeResponse.data;
+    const { lastPrice, volume } = priceVolumeResponse.data;
 
     const time = new Date().toISOString();
 
@@ -43,8 +33,8 @@ module.exports = async (req, res) => {
       time,
       JSON.stringify(asks),
       JSON.stringify(bids),
-      lastTrade.p,
-      volume24h,
+      lastPrice,
+      volume,
     ]);
 
     res.status(200).send(`Bitcoin data saved successfully.`);
