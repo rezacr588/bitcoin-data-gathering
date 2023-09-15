@@ -10,4 +10,5 @@ export const vercelDatabaseConfig = {
   ssl: {
     rejectUnauthorized: false,
   },
+  polygonApiKey: "Wzp8WvJLReKw73O9TmgILKiUTA2lnfFA",
 };
