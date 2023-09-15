@@ -2,15 +2,35 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-    <title>Bitcoin Price Data Collection</title>
-
-    <link rel="stylesheet" href="/global.css" />
-    <link rel="stylesheet" href="/build/bundle.css" />
-
-    <script defer src="/build/bundle.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bitcoin Data Collection</title>
+    <link rel="stylesheet" href="index.css" />
   </head>
+  <body>
+    <header>Bitcoin Price Data Collection</header>
 
-  <body></body>
+    <main>
+      <h1>Welcome</h1>
+      <p>Select an action:</p>
+      <button onclick="fetchData()">Fetch Bitcoin Data</button>
+
+      <!-- Table to display Bitcoin data -->
+      <table>
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Price</th>
+            <!-- Add other columns as needed -->
+          </tr>
+        </thead>
+        <tbody id="btcDataTable">
+          <!-- Data will be populated here -->
+        </tbody>
+      </table>
+    </main>
+
+    <footer>Project by Reza Zeraat</footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>

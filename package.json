@@ -4,13 +4,9 @@
   "description": "A Svelte app for Bitcoin data collection",
   "main": "index.js",
   "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
-    "start": "svelte-kit start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "svelte",
     "bitcoin",
     "data",
     "vercel"
@@ -23,8 +19,6 @@
     "pg": "^8.11.3"
   },
   "devDependencies": {
-    "@sveltejs/kit": "latest",
-    "svelte": "^3.0.0",
     "vite": "latest"
   }
 }
