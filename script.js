@@ -10,10 +10,9 @@ async function fetchData() {
       const row = document.createElement("tr");
       row.innerHTML = `
                 <td>${item.time}</td>
-                <td>${item.price}</td>
+                <td>${item.last_price}</td>
                 <td>${item.asks}</td>
                 <td>${item.bids}</td>
-                <td>${item.last_price}</td>
                 <td>${item.volume_24h}</td>
             `;
       tableBody.appendChild(row);
