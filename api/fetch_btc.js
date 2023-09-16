@@ -1,9 +1,11 @@
 const axios = require("axios");
 const { Pool } = require("pg");
-const { config } = require("../config");
 
 const pool = new Pool({
-  connectionString: config.connectionString,
+  connectionString: process.env.vercel_pg_connection_string,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 module.exports = async (req, res) => {
