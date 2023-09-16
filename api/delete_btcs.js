@@ -3,7 +3,10 @@ const { config } = require("../config");
 
 // PostgreSQL connection details
 const pool = new Pool({
-  connectionString: config.connectionString, // Replace with your connection URL
+  connectionString: process.env.vercel_pg_connection_string,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 module.exports = async (req, res) => {

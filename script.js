@@ -11,7 +11,10 @@ async function fetchData() {
       row.innerHTML = `
                 <td>${item.time}</td>
                 <td>${item.price}</td>
-                <!-- Add other columns as needed -->
+                <td>${item.asks}</td>
+                <td>${item.bids}</td>
+                <td>${item.last_price}</td>
+                <td>${item.volume_24h}</td>
             `;
       tableBody.appendChild(row);
     });
