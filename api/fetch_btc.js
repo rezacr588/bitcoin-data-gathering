@@ -10,16 +10,16 @@ module.exports = async (req, res) => {
   try {
     // Fetching the order book
     const orderBookResponse = await axios.get(
-      "https://api.binance.com/api/v3/depth?symbol=BTCUSDT&limit=5",
+      "https://api.coingecko.com/api/v3/coins/bitcoin/tickers",
     );
 
     // Fetching the price and volume
     const priceVolumeResponse = await axios.get(
-      "https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT",
+      "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=1",
     );
 
-    const { asks, bids } = orderBookResponse.data;
-    const { lastPrice, volume } = priceVolumeResponse.data;
+    const { tickers } = orderBookResponse.data;
+    const { prices } = priceVolumeResponse.data;
 
     const time = new Date().toISOString();
 
@@ -31,10 +31,10 @@ module.exports = async (req, res) => {
 
     await pool.query(query, [
       time,
-      JSON.stringify(asks),
-      JSON.stringify(bids),
-      lastPrice,
-      volume,
+      JSON.stringify(tickers[0].bid_ask_spread_percentage),
+      JSON.stringify(tickers[0].bid_ask_spread_percentage),
+      prices[prices.length - 1][1],
+      tickers[0].volume,
     ]);
 
     res.status(200).send(`Bitcoin data saved successfully.`);
