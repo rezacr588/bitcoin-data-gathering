@@ -12,7 +12,11 @@
     <main>
       <h1>Welcome</h1>
       <p>Select an action:</p>
-      <button onclick="fetchData()">Fetch Bitcoin Data</button>
+      <button onclick="fetchData()">Update Bitcoin Data</button>
+      <button onclick="deleteAllBTCData()">Update Bitcoin Data</button>
+      <a href="/api/all_btc_data" download="advancedBTC_data.csv">
+        <button>Download CSV</button>
+      </a>
 
       <!-- Table to display Bitcoin data -->
       <table>
@@ -20,7 +24,10 @@
           <tr>
             <th>Time</th>
             <th>Price</th>
-            <!-- Add other columns as needed -->
+            <th>Asks</th>
+            <th>Bids</th>
+            <th>Last Price</th>
+            <th>24h Volume</th>
           </tr>
         </thead>
         <tbody id="btcDataTable">

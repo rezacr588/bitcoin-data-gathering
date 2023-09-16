@@ -22,3 +22,15 @@ async function fetchData() {
     console.error("Error fetching data:", error);
   }
 }
+
+async function deleteAllBTCData() {
+  try {
+    const response = await fetch("/api/delete_btcs", {
+      method: "DELETE",
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error("Error deleting data:", error);
+  }
+}
