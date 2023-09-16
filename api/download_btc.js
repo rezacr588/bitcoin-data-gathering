@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
     const result = await pool.query(query);
 
     // Convert the data to CSV format
-    const csvHeaders = "UNIX_TIMESTAMP,ASKS,BIDS,LAST_PRICE,VOLUME_24H\n";
+    const csvHeaders = "TIME,ASKS,BIDS,LAST_PRICE,VOLUME_24H\n";
     const csvData = result.rows
       .map((row) => {
         // Convert ISO 8601 time format to UNIX timestamp
