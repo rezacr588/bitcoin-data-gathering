@@ -10,7 +10,7 @@ const pool = new Pool({
 module.exports = async (req, res) => {
   try {
     // Fetch all rows from the advancedBTC table
-    const query = "SELECT * FROM advancedBTC";
+    const query = "SELECT * FROM advancedBTC ORDER BY id DESC LIMIT 10";
     const result = await pool.query(query);
 
     // Return the data as an array
