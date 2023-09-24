@@ -1,7 +1,8 @@
 const { Pool } = require("pg");
+const { config } = require("../config");
 
 const pool = new Pool({
-  connectionString: process.env.vercel_pg_connection_string,
+  connectionString: config.connectionString,
   ssl: {
     rejectUnauthorized: false,
   },

@@ -3,7 +3,7 @@ const { config } = require("../config");
 
 // PostgreSQL connection details
 const pool = new Pool({
-  connectionString: process.env.vercel_pg_connection_string,
+  connectionString: config.connectionString,
   ssl: {
     rejectUnauthorized: false,
   },
